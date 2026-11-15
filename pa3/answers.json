@@ -7,9 +7,9 @@
     "reply_tick": 7
   },
   "step1": {
-    "bug_router": null,
-    "bug_chosen_prefix": null,
-    "bug_correct_prefix": null
+    "bug_router": "A",
+    "bug_chosen_prefix": "10.0.0.0/16",
+    "bug_correct_prefix": "10.0.6.0/24"
   },
   "step2": {
     "first_tick_metric_16_or_more": null
