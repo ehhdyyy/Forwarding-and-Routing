@@ -1,10 +1,10 @@
 {
   "step0": {
-    "delivery_tick": null,
-    "links_crossed": null,
-    "router_C_out_interface": null,
-    "ttl_on_arrival": null,
-    "reply_tick": null
+    "delivery_tick": 4,
+    "links_crossed": 3,
+    "router_C_out_interface": "C_1",
+    "ttl_on_arrival": 62,
+    "reply_tick": 7
   },
   "step1": {
     "bug_router": null,
