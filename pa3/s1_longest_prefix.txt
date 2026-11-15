@@ -1,0 +1,36 @@
+0001 A   ORIGINATE id=1 proto=echo_request src=10.0.1.1 dst=10.0.6.1 ttl=64
+0001 A   FORWARD   id=1 match=10.0.6.0/24 out=A_0 ttl=64
+0002 B   RECEIVE   id=1 in=B_0 ttl=64
+0002 B   FORWARD   id=1 match=10.0.6.0/24 out=B_1 ttl=63
+0003 C   RECEIVE   id=1 in=C_0 ttl=63
+0003 C   FORWARD   id=1 match=10.0.6.0/24 out=C_1 ttl=62
+0004 F   RECEIVE   id=1 in=F_0 ttl=62
+0004 F   DELIVER   id=1 proto=echo_request from=10.0.1.1
+0004 F   ORIGINATE id=2 proto=echo_reply src=10.0.6.1 dst=10.0.1.1 ttl=64 orig=1
+0004 F   FORWARD   id=2 match=10.0.1.0/24 out=F_0 ttl=64
+0005 C   RECEIVE   id=2 in=C_1 ttl=64
+0005 C   FORWARD   id=2 match=10.0.1.0/24 out=C_0 ttl=63
+0006 B   RECEIVE   id=2 in=B_1 ttl=63
+0006 B   FORWARD   id=2 match=10.0.1.0/24 out=B_0 ttl=62
+0007 A   RECEIVE   id=2 in=A_0 ttl=62
+0007 A   DELIVER   id=2 proto=echo_reply from=10.0.6.1
+0012 A   ORIGINATE id=3 proto=echo_request src=10.0.1.1 dst=10.0.5.1 ttl=64
+0012 A   FORWARD   id=3 match=10.0.5.0/24 out=A_1 ttl=64
+0013 D   RECEIVE   id=3 in=D_0 ttl=64
+0013 D   FORWARD   id=3 match=10.0.5.0/24 out=D_1 ttl=63
+0014 E   RECEIVE   id=3 in=E_1 ttl=63
+0014 E   DELIVER   id=3 proto=echo_request from=10.0.1.1
+0014 E   ORIGINATE id=4 proto=echo_reply src=10.0.5.1 dst=10.0.1.1 ttl=64 orig=3
+0014 E   FORWARD   id=4 match=10.0.1.0/24 out=E_1 ttl=64
+0015 D   RECEIVE   id=4 in=D_1 ttl=64
+0015 D   FORWARD   id=4 match=10.0.0.0/16 out=D_0 ttl=63
+0016 A   RECEIVE   id=4 in=A_1 ttl=63
+0016 A   DELIVER   id=4 proto=echo_reply from=10.0.5.1
+0024 A   ORIGINATE id=5 proto=echo_request src=10.0.1.1 dst=10.0.4.1 ttl=64
+0024 A   FORWARD   id=5 match=10.0.4.0/24 out=A_1 ttl=64
+0025 D   RECEIVE   id=5 in=D_0 ttl=64
+0025 D   DELIVER   id=5 proto=echo_request from=10.0.1.1
+0025 D   ORIGINATE id=6 proto=echo_reply src=10.0.4.1 dst=10.0.1.1 ttl=64 orig=5
+0025 D   FORWARD   id=6 match=10.0.0.0/16 out=D_0 ttl=64
+0026 A   RECEIVE   id=6 in=A_1 ttl=64
+0026 A   DELIVER   id=6 proto=echo_reply from=10.0.4.1
