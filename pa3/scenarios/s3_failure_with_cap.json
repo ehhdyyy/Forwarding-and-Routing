@@ -1,0 +1,21 @@
+{
+ "step": 3,
+ "routing": "dv",
+ "dv_period": 4,
+ "ticks": 120,
+ "check": "trace",
+ "events": [
+  {
+   "tick": 28,
+   "type": "link_down",
+   "iface": "C_1"
+  },
+  {
+   "tick": 28,
+   "type": "link_down",
+   "iface": "F_1"
+  }
+ ],
+ "name": "s3_failure_with_cap",
+ "topology": "topologies/main.json"
+}

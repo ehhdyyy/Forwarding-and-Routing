@@ -1,0 +1,16 @@
+{
+ "step": 4,
+ "routing": "dv",
+ "dv_period": 4,
+ "ticks": 110,
+ "check": "none",
+ "events": [
+  {
+   "tick": 44,
+   "type": "link_down",
+   "iface": "B_1"
+  }
+ ],
+ "name": "s4_net",
+ "topology": "topologies/main.json"
+}

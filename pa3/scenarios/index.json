@@ -1,0 +1,38 @@
+{
+ "steps": [
+  {
+   "step": 0,
+   "title": "Warm-up",
+   "scenarios": []
+  },
+  {
+   "step": 1,
+   "title": "Forwarding and TTL",
+   "scenarios": [
+    "s1_longest_prefix",
+    "s1_ttl_countdown",
+    "s1_ttl_expiry"
+   ]
+  },
+  {
+   "step": 2,
+   "title": "Distance vector",
+   "scenarios": [
+    "s2_learn_routes",
+    "s2_link_failure"
+   ]
+  },
+  {
+   "step": 3,
+   "title": "Bound count to infinity",
+   "scenarios": [
+    "s3_failure_with_cap"
+   ]
+  },
+  {
+   "step": 4,
+   "title": "Experiments",
+   "scenarios": []
+  }
+ ]
+}

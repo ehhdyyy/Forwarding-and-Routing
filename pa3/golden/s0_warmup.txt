@@ -1,0 +1,16 @@
+0001 A   ORIGINATE id=1 proto=echo_request src=10.0.1.1 dst=10.0.6.1 ttl=64
+0001 A   FORWARD   id=1 match=10.0.6.0/24 out=A_0 ttl=64
+0002 B   RECEIVE   id=1 in=B_0 ttl=64
+0002 B   FORWARD   id=1 match=10.0.6.0/24 out=B_1 ttl=63
+0003 C   RECEIVE   id=1 in=C_0 ttl=63
+0003 C   FORWARD   id=1 match=10.0.6.0/24 out=C_1 ttl=62
+0004 F   RECEIVE   id=1 in=F_0 ttl=62
+0004 F   DELIVER   id=1 proto=echo_request from=10.0.1.1
+0004 F   ORIGINATE id=2 proto=echo_reply src=10.0.6.1 dst=10.0.1.1 ttl=64 orig=1
+0004 F   FORWARD   id=2 match=10.0.1.0/24 out=F_0 ttl=64
+0005 C   RECEIVE   id=2 in=C_1 ttl=64
+0005 C   FORWARD   id=2 match=10.0.1.0/24 out=C_0 ttl=63
+0006 B   RECEIVE   id=2 in=B_1 ttl=63
+0006 B   FORWARD   id=2 match=10.0.1.0/24 out=B_0 ttl=62
+0007 A   RECEIVE   id=2 in=A_0 ttl=62
+0007 A   DELIVER   id=2 proto=echo_reply from=10.0.6.1

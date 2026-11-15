@@ -1,0 +1,36 @@
+0001 A   ORIGINATE id=1 proto=echo_request src=10.0.1.1 dst=10.0.6.1 ttl=2
+0001 A   FORWARD   id=1 match=10.0.6.0/24 out=A_0 ttl=2
+0002 B   RECEIVE   id=1 in=B_0 ttl=2
+0002 B   FORWARD   id=1 match=10.0.6.0/24 out=B_1 ttl=1
+0003 C   RECEIVE   id=1 in=C_0 ttl=1
+0003 C   DROP      id=1 reason=ttl_expired
+0003 C   ORIGINATE id=2 proto=icmp_time_exceeded src=10.0.3.1 dst=10.0.1.1 ttl=64 orig=1
+0003 C   FORWARD   id=2 match=10.0.1.0/24 out=C_0 ttl=64
+0004 B   RECEIVE   id=2 in=B_1 ttl=64
+0004 B   FORWARD   id=2 match=10.0.1.0/24 out=B_0 ttl=63
+0005 A   RECEIVE   id=2 in=A_0 ttl=63
+0005 A   DELIVER   id=2 proto=icmp_time_exceeded from=10.0.3.1
+0012 A   ORIGINATE id=3 proto=echo_request src=10.0.1.1 dst=10.0.6.1 ttl=1
+0012 A   FORWARD   id=3 match=10.0.6.0/24 out=A_0 ttl=1
+0013 B   RECEIVE   id=3 in=B_0 ttl=1
+0013 B   DROP      id=3 reason=ttl_expired
+0013 B   ORIGINATE id=4 proto=icmp_time_exceeded src=10.0.2.1 dst=10.0.1.1 ttl=64 orig=3
+0013 B   FORWARD   id=4 match=10.0.1.0/24 out=B_0 ttl=64
+0014 A   RECEIVE   id=4 in=A_0 ttl=64
+0014 A   DELIVER   id=4 proto=icmp_time_exceeded from=10.0.2.1
+0024 A   ORIGINATE id=5 proto=echo_request src=10.0.1.1 dst=10.0.6.1 ttl=3
+0024 A   FORWARD   id=5 match=10.0.6.0/24 out=A_0 ttl=3
+0025 B   RECEIVE   id=5 in=B_0 ttl=3
+0025 B   FORWARD   id=5 match=10.0.6.0/24 out=B_1 ttl=2
+0026 C   RECEIVE   id=5 in=C_0 ttl=2
+0026 C   FORWARD   id=5 match=10.0.6.0/24 out=C_1 ttl=1
+0027 F   RECEIVE   id=5 in=F_0 ttl=1
+0027 F   DELIVER   id=5 proto=echo_request from=10.0.1.1
+0027 F   ORIGINATE id=6 proto=echo_reply src=10.0.6.1 dst=10.0.1.1 ttl=64 orig=5
+0027 F   FORWARD   id=6 match=10.0.1.0/24 out=F_0 ttl=64
+0028 C   RECEIVE   id=6 in=C_1 ttl=64
+0028 C   FORWARD   id=6 match=10.0.1.0/24 out=C_0 ttl=63
+0029 B   RECEIVE   id=6 in=B_1 ttl=63
+0029 B   FORWARD   id=6 match=10.0.1.0/24 out=B_0 ttl=62
+0030 A   RECEIVE   id=6 in=A_0 ttl=62
+0030 A   DELIVER   id=6 proto=echo_reply from=10.0.6.1

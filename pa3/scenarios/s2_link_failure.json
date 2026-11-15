@@ -1,0 +1,22 @@
+{
+ "step": 2,
+ "routing": "dv",
+ "dv_period": 4,
+ "ticks": 120,
+ "check": "trace",
+ "events": [
+  {
+   "tick": 28,
+   "type": "link_down",
+   "iface": "C_1"
+  },
+  {
+   "tick": 28,
+   "type": "link_down",
+   "iface": "F_1"
+  }
+ ],
+ "name": "s2_link_failure",
+ "topology": "topologies/main.json",
+ "compare_until": 73
+}

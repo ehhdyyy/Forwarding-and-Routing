@@ -1,0 +1,28 @@
+{
+  "step0": {
+    "delivery_tick": null,
+    "links_crossed": null,
+    "router_C_out_interface": null,
+    "ttl_on_arrival": null,
+    "reply_tick": null
+  },
+  "step1": {
+    "bug_router": null,
+    "bug_chosen_prefix": null,
+    "bug_correct_prefix": null
+  },
+  "step2": {
+    "first_tick_metric_16_or_more": null
+  },
+  "step3": {
+    "uncapped_highest_metric": null,
+    "capped_last_change_tick": null
+  },
+  "step4": {
+    "ping_rtt_before_failure": null,
+    "ping_rtt_after_reroute": null,
+    "first_ping_lost_at": null,
+    "slowest_ping_rtt": null,
+    "traceroute_hop3_after_failure": null
+  }
+}

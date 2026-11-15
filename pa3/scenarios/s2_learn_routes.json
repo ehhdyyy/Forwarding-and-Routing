@@ -1,0 +1,10 @@
+{
+ "step": 2,
+ "routing": "dv",
+ "dv_period": 4,
+ "ticks": 32,
+ "check": "trace",
+ "events": [],
+ "name": "s2_learn_routes",
+ "topology": "topologies/main.json"
+}
