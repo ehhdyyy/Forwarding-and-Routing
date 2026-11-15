@@ -12,7 +12,7 @@
     "bug_correct_prefix": "10.0.6.0/24"
   },
   "step2": {
-    "first_tick_metric_16_or_more": null
+    "first_tick_metric_16_or_more": 81
   },
   "step3": {
     "uncapped_highest_metric": null,
