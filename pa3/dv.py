@@ -11,7 +11,7 @@ on_link_down() when one of your interfaces fails. It reads routes() to build the
 """
 from engine.log import log
 
-INFINITY = None   # Step 3: set this to 16. With --dv-infinity none it is None again, so check it before comparing
+INFINITY = 16   # Step 3: set this to 16. With --dv-infinity none it is None again, so check it before comparing
 
 
 class DistanceVector:

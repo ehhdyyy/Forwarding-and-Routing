@@ -12,11 +12,11 @@
     "bug_correct_prefix": "10.0.6.0/24"
   },
   "step2": {
-    "first_tick_metric_16_or_more": 81
+    "first_tick_metric_16_or_more": 73
   },
   "step3": {
-    "uncapped_highest_metric": null,
-    "capped_last_change_tick": null
+    "uncapped_highest_metric": 26,
+    "capped_last_change_tick": 81
   },
   "step4": {
     "ping_rtt_before_failure": null,
