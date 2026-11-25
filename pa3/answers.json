@@ -20,9 +20,9 @@
   },
   "step4": {
     "ping_rtt_before_failure": 4,
-    "ping_rtt_after_reroute": 6,
-    "first_ping_lost_at": 39,
-    "slowest_ping_rtt": 8,
+    "ping_rtt_after_reroute": 8,
+    "first_ping_lost_at": 41,
+    "slowest_ping_rtt": 18,
     "traceroute_hop3_after_failure": "F"
   }
 }
